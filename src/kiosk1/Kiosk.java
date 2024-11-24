@@ -24,7 +24,6 @@ public class Kiosk {
     // 3. 기능
     public void start() { // 키오스크 프로그램 시작 메서드
         Scanner scanner = new Scanner(System.in);
-        boolean running = true;
 
         while (running) {
             //메뉴 출력 메서드
