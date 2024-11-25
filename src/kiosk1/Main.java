@@ -18,10 +18,10 @@ public class Main {
 
         // Desserts 메뉴 생성
         Menu dessertsMenu = new Menu("Desserts");
-        drinksMenu.addMenuItem(new MenuItem("Cake", 5.0, "케이크"));
-        drinksMenu.addMenuItem(new MenuItem("Donut", 5.0, "도넛"));
-        drinksMenu.addMenuItem(new MenuItem("Pie", 4.5, "파이"));
-        drinksMenu.addMenuItem(new MenuItem("Cookie", 3.0, "쿠키"));
+        dessertsMenu.addMenuItem(new MenuItem("Cake", 5.0, "케이크"));
+        dessertsMenu.addMenuItem(new MenuItem("Donut", 5.0, "도넛"));
+        dessertsMenu.addMenuItem(new MenuItem("Pie", 4.5, "파이"));
+        dessertsMenu.addMenuItem(new MenuItem("Cookie", 3.0, "쿠키"));
 
         // Kiosk 객체 생성 및 start()메서드로 프로그램 시작
         Kiosk kiosk = new Kiosk();
