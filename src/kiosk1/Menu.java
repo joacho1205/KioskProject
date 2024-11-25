@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class Menu {
     // 1. 속성
-    String categoryName; // 메뉴 카테고리 이름
-    List<MenuItem> items; // 해당 카테고리의 MenuItem 리스트
+    private String categoryName; // 메뉴 카테고리 이름
+    private List<MenuItem> items; // 해당 카테고리의 MenuItem 리스트
 
     // 2. 생성자
     public Menu(String categoryName) {
@@ -32,4 +32,20 @@ public class Menu {
         System.out.println("0. 뒤로가기");
     }
 
+    // Getter , Setter 메서드
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public List<MenuItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<MenuItem> items) {
+        this.items = items;
+    }
 }

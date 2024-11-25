@@ -13,8 +13,8 @@ import java.util.Scanner;
  */
 public class Kiosk {
     // 1. 속성
-    List<Menu> category; // 여러 Menu 객체를 관리한다. == 카테고리 단위로 메뉴를 관리한다.
-    boolean running; // 프로그램 실행 상태를 속성으로 관리
+    private List<Menu> category; // 여러 Menu 객체를 관리한다. == 카테고리 단위로 메뉴를 관리한다.
+    private boolean running; // 프로그램 실행 상태를 속성으로 관리
 
     // 2. 생성자
     public Kiosk() {
@@ -48,7 +48,7 @@ public class Kiosk {
     public void displayCategory() { // 전체 카테고리 출력 메서드
         System.out.println("[ MAIN MENU ]");
         for (int i = 0; i < category.size(); i++) { // 반복문을 활용해 List 안에 있는 카테고리를 하나씩 출력
-            System.out.println((i + 1) + ". " + category.get(i).categoryName);
+            System.out.println((i + 1) + ". " + category.get(i).getCategoryName());
         }
         System.out.println("0. 종료      | 종료");
     }
@@ -73,11 +73,11 @@ public class Kiosk {
                         case 2:
                         case 3:
                         case 4:
-                            MenuItem selectedItem = selectedCategory.items.get(itemChoice - 1);
+                            MenuItem selectedItem = selectedCategory.getItems().get(itemChoice - 1);
                             System.out.printf("선택한 메뉴: %s | 가격: W %.1f | 설명: %s%n",
-                                    selectedItem.name,
-                                    selectedItem.price,
-                                    selectedItem.description);
+                                    selectedItem.getName(),
+                                    selectedItem.getPrice(),
+                                    selectedItem.getDescription());
                             break; // 선택한 메뉴 출력 후 종료, 다시 카테고리 선택 화면으로 루프
                         case 0:
                             System.out.println("카테고리 메뉴로 돌아갑니다.");
@@ -99,5 +99,21 @@ public class Kiosk {
                 System.out.println("잘못된 입력입니다. 카테고리 번호를 다시 선택해주세요.");
                 break; // 잘못된 입력 처리
         }
+    }
+
+    public List<Menu> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Menu> category) {
+        this.category = category;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 }

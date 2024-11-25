@@ -5,9 +5,9 @@ package kiosk1;
  */
 public class MenuItem {
     // 1. 속성
-    String name; // 이름
-    double price; // 가격
-    String description; // 설명
+    private String name; // 이름
+    private double price; // 가격
+    private String description; // 설명
 
     // 2. 생성자
     public MenuItem (String name, double price, String description) {
@@ -21,4 +21,32 @@ public class MenuItem {
         return String.format("%s   | W %.1f | %s", name, price, description);
     }
 
+    // Getter , Setter 메서드
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        if (price > 0) { // 유효성 검사
+            this.price = price;
+        } else {
+            System.out.println("가격은 0보다 커야 합니다.");
+        }
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
