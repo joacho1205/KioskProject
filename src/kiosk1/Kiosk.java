@@ -15,11 +15,13 @@ public class Kiosk {
     // 1. 속성
     private List<Menu> category; // 여러 Menu 객체를 관리한다. == 카테고리 단위로 메뉴를 관리한다.
     private boolean running; // 프로그램 실행 상태를 속성으로 관리
+    private Scanner scanner;
 
     // 2. 생성자
     public Kiosk() {
         this.category = new ArrayList<>();
         this.running = true; // 초기값
+        this.scanner = new Scanner(System.in);
     }
 
     // 3. 기능
@@ -28,8 +30,6 @@ public class Kiosk {
     }
 
     public void start() { // 키오스크 프로그램 시작 메서드
-        Scanner scanner = new Scanner(System.in);
-
         while (running) {
             displayCategory(); //전체 카테고리 출력 메서드
 
@@ -63,7 +63,6 @@ public class Kiosk {
 
                 // 사용자 입력 받기
                 System.out.print("메뉴 번호를 선택해주세요 (0: 뒤로가기): ");
-                Scanner scanner = new Scanner(System.in);
 
                 if (scanner.hasNextInt()) {
                     int itemChoice = scanner.nextInt();
