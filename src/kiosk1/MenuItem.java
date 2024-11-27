@@ -26,12 +26,16 @@ public class MenuItem {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getPrice() {
         return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setPrice(double price) {
@@ -40,10 +44,6 @@ public class MenuItem {
         } else {
             System.out.println("가격은 0보다 커야 합니다.");
         }
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setDescription(String description) {

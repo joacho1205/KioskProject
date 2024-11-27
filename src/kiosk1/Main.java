@@ -38,14 +38,14 @@ public class Main {
             dessertsMenu.addMenuItem(new MenuItem(item[0], Double.parseDouble(item[1]), item[2]));
         }
 
-        // Kiosk 객체 생성 및 start()메서드로 프로그램 시작
+        // Kiosk 객체 생성
         Kiosk kiosk = new Kiosk();
         Menu[] menus = {burgerMenu, drinksMenu, dessertsMenu};
         for (Menu menu : menus) {
             kiosk.addMenu(menu);
         }
 
-        // 키오스크 프로그램 실행
+        // start()메서드로 키오스크 프로그램 실행
         kiosk.start();
     }
 }

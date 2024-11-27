@@ -54,49 +54,40 @@ public class Kiosk {
     }
 
     public void handleInput(int categoryChoice) {
-        switch (categoryChoice) {
-            case 1:
-            case 2:
-            case 3:
-                Menu selectedCategory = category.get(categoryChoice - 1);
-                selectedCategory.displayMenu(); // 선택된 카테고리 메뉴 출력
+        if (categoryChoice > 0 && categoryChoice <= category.size()) {
+            Menu selectedCategory = category.get(categoryChoice - 1);
+            selectedCategory.displayMenu(); // 선택된 카테고리 메뉴 출력
 
-                // 사용자 입력 받기
-                System.out.print("메뉴 번호를 선택해주세요 (0: 뒤로가기): ");
+            // 사용자 입력 받기
+            System.out.print("메뉴 번호를 선택해주세요 (0: 뒤로가기): ");
 
-                if (scanner.hasNextInt()) {
-                    int itemChoice = scanner.nextInt();
+            if (scanner.hasNextInt()) {
+                int itemChoice = scanner.nextInt();
 
-                    switch (itemChoice) {
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                            MenuItem selectedItem = selectedCategory.getItems().get(itemChoice - 1);
-                            System.out.printf("선택한 메뉴: %s | 가격: W %.1f | 설명: %s%n",
-                                    selectedItem.getName(),
-                                    selectedItem.getPrice(),
-                                    selectedItem.getDescription());
-                            break; // 선택한 메뉴 출력 후 종료, 다시 카테고리 선택 화면으로 루프
-                        case 0:
-                            System.out.println("카테고리 메뉴로 돌아갑니다.");
-                            break; // 뒤로 가기
-                        default:
-                            System.out.println("잘못된 입력입니다. 메뉴 번호를 다시 선택해주세요.");
-                            break; // 잘못된 입력 처리
-                    }
-                } else {
-                    System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
-                    scanner.next(); // 잘못된 입력 제거
+                if (itemChoice == 0) {
+                    System.out.println("카테고리 메뉴로 돌아갑니다.");
+                    return; // 뒤로 가기
                 }
-                break; // 카테고리 선택 완료 후 종료
-            case 0:
-                System.out.println("프로그램을 종료합니다.");
-                running = false; // while루프 종료
-                break; //프로그램 종료
-            default:
-                System.out.println("잘못된 입력입니다. 카테고리 번호를 다시 선택해주세요.");
-                break; // 잘못된 입력 처리
+
+                List<MenuItem> items = selectedCategory.getItems();
+                if (itemChoice > 0 && itemChoice <= items.size()) {
+                    MenuItem selectedItem = items.get(itemChoice - 1);
+                    System.out.printf("선택한 메뉴: %s | 가격: W %.1f | 설명: %s%n",
+                            selectedItem.getName(),
+                            selectedItem.getPrice(),
+                            selectedItem.getDescription());
+                } else {
+                    System.out.println("잘못된 입력입니다. 메뉴 번호를 다시 선택해주세요.");
+                }
+            } else {
+                System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+                scanner.next(); // 잘못된 입력 제거
+            }
+        } else if (categoryChoice == 0) {
+            System.out.println("프로그램을 종료합니다.");
+            running = false; // 프로그램 종료
+        } else {
+            System.out.println("잘못된 입력입니다. 카테고리 번호를 다시 선택해주세요.");
         }
     }
 

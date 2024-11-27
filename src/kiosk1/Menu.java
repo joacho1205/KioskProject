@@ -37,12 +37,12 @@ public class Menu {
         return categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
     public List<MenuItem> getItems() {
         return items;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public void setItems(List<MenuItem> items) {
